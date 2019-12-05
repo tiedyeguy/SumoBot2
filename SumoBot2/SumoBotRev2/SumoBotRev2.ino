@@ -80,16 +80,16 @@ void loop() {
   }
 }
 
-void trackStep() { //returns false if all ultrasonic vals are zero
-  int flVal = flSonar.ping_cm();
+void trackStep() {
+  int flVal = flSonar.ping_cm(); //assigns read values to variables so reading doesn't happen multiple times
   int frVal = frSonar.ping_cm();
   int blVal = blSonar.ping_cm();
   int brVal = brSonar.ping_cm();
 
-  if (flVal != 0 && flVal < frVal && flVal < blVal && flVal < brVal) move(50, 100);
-  else if (frVal != 0 && frVal < blVal && frVal < brVal) move(100, 50);
-  else if (blVal != 0 && blVal < brVal) move(-50, -100);
-  else move(-100, -50);
+  if (flVal != 0 && flVal < frVal && flVal < blVal && flVal < brVal) move(50, 100); //if the front left sensor is the smallest and not zero, turn forward-left
+  else if (frVal != 0 && frVal < blVal && frVal < brVal) move(100, 50); //same as above but for front right
+  else if (blVal != 0 && blVal < brVal) move(-50, -100); //back left
+  else move(-100, -50); //back right
 }
 
 void pointTowardOpponent() {
