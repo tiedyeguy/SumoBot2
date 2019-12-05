@@ -69,8 +69,7 @@ void loop() {
   if (hittingLineInt != -1) {
     if (hittingLineInt == 1) move(-100, -100);
     else move(100, 100);
-    delay(1000);
-//      delay(15);
+    delay(15);
   }
 
   if (isSeeing()) {
@@ -116,12 +115,12 @@ boolean isSeeing() {
   int brVal = brSonar.ping_cm();
 
   Serial.println(String(flVal) + " " + String(frVal) + " " + String(blVal) + " " + String(brVal));
-  
+
   return !(flVal + frVal + blVal + brVal == 0);
 }
 
 void move(int l, int r) {
-  setMotor(1, -1*l);
+  setMotor(1, -1 * l);
   setMotor(0, r);
 
   movingForward = l > 0 && r > 0;
