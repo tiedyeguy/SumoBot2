@@ -114,8 +114,6 @@ boolean isSeeing() {
   int blVal = blSonar.ping_cm();
   int brVal = brSonar.ping_cm();
 
-  Serial.println(String(flVal) + " " + String(frVal) + " " + String(blVal) + " " + String(brVal));
-
   return !(flVal + frVal + blVal + brVal == 0);
 }
 
